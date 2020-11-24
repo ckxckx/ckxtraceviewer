@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ckxTraceViewObj</class>
+ <widget class="QWidget" name="ckxTraceViewObj">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>256</width>
+    <height>391</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>201</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_fileexp">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>340</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>File Explore</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_loattrace">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>340</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Load Trace</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_searchnext">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>270</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>29</x>
+     <y>249</y>
+     <width>208</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QRadioButton" name="radioButton_manual">
+      <property name="text">
+       <string>Manual Mode</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_auto">
+      <property name="text">
+       <string>Auto Trace</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Search 0x</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_search"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>310</y>
+     <width>194</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>TraceFile:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_tracefile"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_loattrace</sender>
+   <signal>clicked()</signal>
+   <receiver>ckxTraceViewObj</receiver>
+   <slot>ckx_loadtrace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>212</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_fileexp</sender>
+   <signal>clicked()</signal>
+   <receiver>ckxTraceViewObj</receiver>
+   <slot>ckx_filechoose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>355</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>100</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>ckxTraceViewObj</receiver>
+   <slot>ckx_onSelectionChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>13</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>ckxTraceViewObj</receiver>
+   <slot>ckx_onItemClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>195</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_search</sender>
+   <signal>returnPressed()</signal>
+   <receiver>ckxTraceViewObj</receiver>
+   <slot>ckx_search_address()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>247</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_searchnext</sender>
+   <signal>clicked()</signal>
+   <receiver>ckxTraceViewObj</receiver>
+   <slot>ckx_next_button_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>338</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ckx_loadtrace()</slot>
+  <slot>ckx_filechoose()</slot>
+  <slot>ckx_onSelectionChanged()</slot>
+  <slot>ckx_onItemClicked()</slot>
+  <slot>ckx_search_address()</slot>
+  <slot>ckx_next_button_clicked()</slot>
+ </slots>
+</ui>
