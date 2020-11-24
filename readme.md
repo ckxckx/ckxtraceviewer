@@ -15,6 +15,10 @@ cp ./ckxtraceviewer_plugin.py <YOUR IDA PLUGINS DIR or idaapi.get_user_idadir()/
 
 
 
+`cd test/ && python ./testuse.py` helps to debug the running.
+
+
+
 ### Usage:
 
 
